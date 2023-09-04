@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS Layouts</title>
+    <link href="styles.css" rel="stylesheet" />
+    <style>
+      /* Styles to make the demos below a bit prettier */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        overflow-wrap: break-word;
+      }
+
+      body {
+        font-family: sans-serif;
+        line-height: 1.5;
+        margin: 1.5rem;
+        max-width: 50rem;
+      }
+
+      pre {
+        border: 1px solid #ddd;
+        color: #444;
+        overflow: auto;
+        padding: 0.75rem;
+      }
+
+      [class^='grid'] > *,
+      section > [class^='inline'] > *,
+      section > [class^='stack'] > * {
+        background-color: #f0f0f0;
+        line-height: 1;
+        outline: 1px solid #fff;
+        padding: 1rem;
+      }
+
+      .a,
+      .header {
+        background-color: #aaffd5;
+      }
+
+      .b,
+      .content {
+        background-color: #d0aaff;
+      }
+
+      .c,
+      .sidebar {
+        background-color: #edffaa;
+      }
+
+      .sidebar ul {
+        display: flex;
+        flex-direction: column;
+        min-height: 500px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body class="stack-2x">
+    <header class="stack-half">
+      <h1>CSS Layouts</h1>
+      <p>
+        Who needs a grid system anymore? Some useful CSS layouts using <code>flex</code> and <code>grid</code> for any
+        project.
+      </p>
+
+      <p>To use, copy the CSS from <a href="styles.css">styles.css</a> and use the HTML markup below.</p>
+    </header>
+
+    <section class="stack">
+      <h2 id="inline">Stack</h2>
+
+      <h3>Stack items in a column</h3>
+
+      <div class="stack">
+        <div>Stack item 1</div>
+        <div>Stack item 2</div>
+        <div>Stack item 3</div>
+      </div>
+
+      <pre><code>&lt;div class=&quot;stack&quot;&gt; 
+  &lt;div&gt;Stack item 1&lt;/div&gt; 
+  &lt;div&gt;Stack item 2&lt;/div&gt;
+  &lt;div&gt;Stack item 3&lt;/div&gt; 
+&lt;/div&gt;</code></pre>
+
+      <h3>Change gap size</h3>
+
+      <div>
+        Options: <code>stack-zero</code>, <code>stack-quarter</code>, <code>stack-half</code>, <code>stack-2x</code>
+      </div>
+
+      <div class="stack-2x">
+        <div>Stack item 1</div>
+        <div>Stack item 2</div>
+        <div>Stack item 3</div>
+      </div>
+
+      <pre><code>&lt;div class=&quot;stack-2x&quot;&gt; 
+  &lt;div&gt;Stack item 1&lt;/div&gt; 
+  &lt;div&gt;Stack item 2&lt;/div&gt;
+  &lt;div&gt;Stack item 3&lt;/div&gt; 
+&lt;/div&gt;</code></pre>
+
+      <h3>Bottom align last item</h3>
+
+      <div class="stack-end" style="min-height: 14rem">
+        <div>Stack item 1</div>
+        <div>Stack item 2</div>
+        <div>List stack item</div>
+      </div>
+
+      <pre><code>&lt;div class=&quot;stack-end&quot;&gt; 
+  &lt;div&gt;Stack item 1&lt;/div&gt; 
+  &lt;div&gt;Stack item 2&lt;/div&gt;
+  &lt;div&gt;List stack item&lt;/div&gt; 
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="stack">
+      <h2 id="inline">Inline</h2>
+
+      <h3>Align items inline</h3>
+
+      <div class="inline">
+        <div>Inline item 1</div>
+        <div>Inline item 2</div>
+        <div>Inline item 3</div>
+      </div>
+
+      <pre><code>&lt;div class=&quot;inline&quot;&gt; 
+  &lt;div&gt;Inline item 1&lt;/div&gt; 
+  &lt;div&gt;Inline item 2&lt;/div&gt;
+  &lt;div&gt;Inline item 3&lt;/div&gt; 
+&lt;/div&gt;</code></pre>
+
+      <h3>Change gap size</h3>
+
+      <div>
+        Options: <code>inline-zero</code>, <code>inline-quarter</code>, <code>inline-half</code>, <code>inline-2x</code>
+      </div>
+
+      <div class="inline-2x">
+        <div>Inline item 1</div>
+        <div>Inline item 2</div>
+        <div>Inline item 3</div>
+      </div>
+
+      <pre><code>&lt;div class=&quot;inline-2x&quot;&gt; 
+  &lt;div&gt;Inline item 1&lt;/div&gt; 
+  &lt;div&gt;Inline item 2&lt;/div&gt;
+  &lt;div&gt;Inline item 3&lt;/div&gt; 
+&lt;/div&gt;</code></pre>
+
+      <h3>Align items with space between</h3>
+
+      <div class="inline-between">
+        <div>Inline item 1</div>
+        <div>Inline item 2</div>
+      </div>
+
+      <pre><code>&lt;div class=&quot;inline-between&quot;&gt; 
+  &lt;div&gt;Inline item 1&lt;/div&gt; 
+  &lt;div&gt;Inline item 2&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3>Wrap items</h3>
+
+      <div class="inline-wrap">
+        <div>Inline item 1</div>
+        <div>Inline item 2</div>
+        <div>Inline item 3</div>
+        <div>Inline item 4</div>
+      </div>
+
+      <pre><code>&lt;div class=&quot;inline-wrap&quot;&gt; 
+  &lt;div&gt;Inline item 1&lt;/div&gt; 
+  &lt;div&gt;Inline item 2&lt;/div&gt;
+  &lt;div&gt;Inline item 4&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="stack-half">
+      <h2 id="grid-sidebar">Grid Sidebar</h2>
+      <p>Content with scrollable sidebar.</p>
+      <p>On mobile, collapse to 1 column with the order: Header &rarr; Sidebar &rarr; Content</p>
+
+      <div class="grid-sidebar">
+        <header class="header">Header</header>
+        <section class="content">Content</section>
+        <aside class="sidebar">
+          Sidebar
+          <div class="scroll-container">
+            <ul>
+              <li>Item 1</li>
+              <li>Item 2</li>
+            </ul>
+            <ul>
+              <li>Item 3</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <pre><code>&lt;div class=&quot;grid-sidebar&quot;&gt; 
+  &lt;header class=&quot;header&quot;&gt;Header&lt;/header&gt; 
+  &lt;section class=&quot;content&quot;&gt;Content&lt;/section&gt; 
+  &lt;aside class=&quot;sidebar&quot;&gt;Sidebar&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="stack-half">
+      <h2 id="grid-acb">Grid ACB</h2>
+      <p>Uses named sections to order content. Right align an image with a specific aspect ratio.</p>
+      <p>On mobile, collapse to 1 column with the order: Header &rarr; Image &rarr; Content</p>
+      <div class="grid-acb">
+        <header class="a">Header (Section A)</header>
+        <div class="b">Content (Section B)</div>
+        <div class="c">Image (Section C)</div>
+      </div>
+
+      <pre><code>&lt;div class=&quot;grid-acb&quot;&gt; 
+  &lt;header class=&quot;a&quot;&gt;Header (Section A)&lt;/header&gt; 
+  &lt;div class=&quot;b&quot;&gt;Content (Section B)&lt;/div&gt; 
+  &lt;div class=&quot;c&quot;&gt;Image (Section C)&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="stack-half">
+      <h2 id="grid-block-5">Grid Block 5</h2>
+      <p>A block of 5 items per row. Reduce items per row at breakpoints.</p>
+      <p>This could be modified to N items.</p>
+
+      <ul class="grid-blocks-5">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+        <li>F</li>
+        <li>G</li>
+        <li>H</li>
+        <li>I</li>
+        <li>J</li>
+        <li>K</li>
+        <li>L</li>
+        <li>M</li>
+        <li>N</li>
+      </ul>
+
+      <pre><code>&lt;ul class=&quot;grid-blocks-5&quot;&gt; 
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  ...
+&lt;/ul&gt;</code></pre>
+    </section>
+
+    <section class="stack-half">
+      <h2 id="grid-inline">Grid Inline</h2>
+      <p>Collapse items per row based on their fixed width (in this case 12rem)</p>
+
+      <ul class="grid-inline">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+        <li>F</li>
+        <li>G</li>
+        <li>H</li>
+        <li>I</li>
+        <li>J</li>
+        <li>K</li>
+        <li>L</li>
+        <li>M</li>
+        <li>N</li>
+      </ul>
+
+      <pre><code>&lt;ul class=&quot;grid-inline&quot;&gt; 
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  ...
+&lt;/ul&gt;</code></pre>
+    </section>
+  </body>
+</html>
