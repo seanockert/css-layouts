@@ -16,10 +16,7 @@
   gap: var(--size-base);
 }
 
-ul[class^='inline'],
-ul[class*=' inline'],
-ul[class^='stack'],
-ul[class*=' stack'] {
+ul[class] {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -67,6 +64,11 @@ ul[class*=' stack'] {
 
 .stack-end > :last-child {
   margin-top: auto;
+}
+
+.align-top {
+  align-items: flex-start;
+  align-self: flex-start;
 }
 
 /* Grid ACB */
