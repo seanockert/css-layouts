@@ -15,7 +15,12 @@
         overflow-wrap: break-word;
       }
 
+      html {
+        background: linear-gradient(#edffaa, transparent 10rem);
+      }
+
       body {
+        color: #444;
         font-family: sans-serif;
         line-height: 1.5;
         margin: 1.5rem;
@@ -23,10 +28,11 @@
       }
 
       pre {
-        border: 1px solid #ddd;
-        color: #444;
+        border: 0.5px solid #d1d9ba;
+        color: #283109;
         overflow: auto;
         padding: 0.75rem;
+        position: relative;
       }
 
       [class^='grid'] > *,
@@ -59,6 +65,21 @@
         min-height: 500px;
         overflow: hidden;
       }
+
+      .copy {
+        background: none;
+        border: none;
+        cursor: pointer;
+        opacity: 0.7;
+        padding: 0.5rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .copy:hover {
+        opacity: 1;
+      }
     </style>
   </head>
   <body class="stack-2x">
@@ -73,7 +94,7 @@
     </header>
 
     <section class="stack">
-      <h2 id="inline">Stack</h2>
+      <h2 id="stack">Stack</h2>
 
       <h3>Stack items in a column</h3>
 
@@ -83,11 +104,11 @@
         <div>Stack item 3</div>
       </div>
 
-      <pre><code>&lt;div class=&quot;stack&quot;&gt; 
+      <pre><code id="code-stack">&lt;div class=&quot;stack&quot;&gt; 
   &lt;div&gt;Stack item 1&lt;/div&gt; 
   &lt;div&gt;Stack item 2&lt;/div&gt;
   ...
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-stack')">Copy</button></pre>
 
       <h3>Change gap size</h3>
 
@@ -101,11 +122,11 @@
         <div>Stack item 3</div>
       </div>
 
-      <pre><code>&lt;div class=&quot;stack-2x&quot;&gt; 
+      <pre><code id="code-stack-2x">&lt;div class=&quot;stack-2x&quot;&gt; 
   &lt;div&gt;Stack item 1&lt;/div&gt; 
   &lt;div&gt;Stack item 2&lt;/div&gt;
   ...
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-stack-2x')">Copy</button></pre>
 
       <h3>Bottom align last item</h3>
 
@@ -115,11 +136,11 @@
         <div>Last stack item</div>
       </div>
 
-      <pre><code>&lt;div class=&quot;stack-end&quot;&gt; 
+      <pre><code id="code-stack-end">&lt;div class=&quot;stack-end&quot;&gt; 
   &lt;div&gt;Stack item 1&lt;/div&gt; 
   &lt;div&gt;Stack item 2&lt;/div&gt;
   &lt;div&gt;Last stack item&lt;/div&gt; 
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-stack-end')">Copy</button></pre>
     </section>
 
     <section class="stack">
@@ -133,11 +154,11 @@
         <div>Inline item 3</div>
       </div>
 
-      <pre><code>&lt;div class=&quot;inline&quot;&gt; 
+      <pre><code id="code-inline">&lt;div class=&quot;inline&quot;&gt; 
   &lt;div&gt;Inline item 1&lt;/div&gt; 
   &lt;div&gt;Inline item 2&lt;/div&gt;
   ...
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-inline')">Copy</button></pre>
 
       <h3>Change gap size</h3>
 
@@ -151,11 +172,11 @@
         <div>Inline item 3</div>
       </div>
 
-      <pre><code>&lt;div class=&quot;inline-2x&quot;&gt; 
+      <pre><code id="code-inline-2x">&lt;div class=&quot;inline-2x&quot;&gt; 
   &lt;div&gt;Inline item 1&lt;/div&gt; 
   &lt;div&gt;Inline item 2&lt;/div&gt;
   ...
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-inline-2x')">Copy</button></pre>
 
       <h3>Align items with space between</h3>
 
@@ -164,11 +185,11 @@
         <div>Inline item 2</div>
       </div>
 
-      <pre><code>&lt;div class=&quot;inline-between&quot;&gt; 
+      <pre><code id="code-inline-between">&lt;div class=&quot;inline-between&quot;&gt; 
   &lt;div&gt;Inline item 1&lt;/div&gt; 
   &lt;div&gt;Inline item 2&lt;/div&gt;
   ...
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-inline-between')">Copy</button></pre>
 
       <h3>Wrap items on small viewports</h3>
 
@@ -180,11 +201,11 @@
         <div>Inline item 5</div>
       </div>
 
-      <pre><code>&lt;div class=&quot;inline-wrap&quot;&gt; 
+      <pre><code id="code-inline-wrap">&lt;div class=&quot;inline-wrap&quot;&gt; 
   &lt;div&gt;Inline item 1&lt;/div&gt; 
   &lt;div&gt;Inline item 2&lt;/div&gt;
   ...
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-inline-wrap')">Copy</button></pre>
 
       <h3>Top align instead of center align</h3>
 
@@ -194,11 +215,11 @@
         <div>Inline item 3</div>
       </div>
 
-      <pre><code>&lt;div class=&quot;inline align-top&quot;&gt; 
+      <pre><code id="code-inline-top">&lt;div class=&quot;inline align-top&quot;&gt; 
   &lt;div&gt;Inline item 1&lt;/div&gt; 
   &lt;div&gt;Inline item 2&lt;/div&gt;
   ...
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-inline-top')">Copy</button></pre>
     </section>
 
     <section class="stack-half">
@@ -223,11 +244,11 @@
         </aside>
       </div>
 
-      <pre><code>&lt;div class=&quot;grid-sidebar&quot;&gt; 
+      <pre><code id="code-grid-sidebar">&lt;div class=&quot;grid-sidebar&quot;&gt; 
   &lt;header class=&quot;header&quot;&gt;Header&lt;/header&gt; 
   &lt;section class=&quot;content&quot;&gt;Content&lt;/section&gt; 
   &lt;aside class=&quot;sidebar&quot;&gt;Sidebar&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code><button class="copy" onclick="copyText('grid-sidebar')">Copy</button></pre>
     </section>
 
     <section class="stack-half">
@@ -240,11 +261,11 @@
         <div class="c">Image (Section C)</div>
       </div>
 
-      <pre><code>&lt;div class=&quot;grid-acb&quot;&gt; 
+      <pre><code id="code-grid-acb">&lt;div class=&quot;grid-acb&quot;&gt; 
   &lt;header class=&quot;a&quot;&gt;Header (Section A)&lt;/header&gt; 
   &lt;div class=&quot;b&quot;&gt;Content (Section B)&lt;/div&gt; 
   &lt;div class=&quot;c&quot;&gt;Image (Section C)&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-grid-acb')">Copy</button></pre>
     </section>
 
     <section class="stack-half">
@@ -269,11 +290,11 @@
         <li>N</li>
       </ul>
 
-      <pre><code>&lt;ul class=&quot;grid-blocks-5&quot;&gt; 
+      <pre><code id="code-grid-blocks-5">&lt;ul class=&quot;grid-blocks-5&quot;&gt; 
   &lt;li&gt;Item 1&lt;/li&gt;
   &lt;li&gt;Item 2&lt;/li&gt;
   ...
-&lt;/ul&gt;</code></pre>
+&lt;/ul&gt;</code><button class="copy" onclick="copyText('code-grid-blocks-5')">Copy</button></pre>
     </section>
 
     <section class="stack-half">
@@ -297,11 +318,26 @@
         <li>N</li>
       </ul>
 
-      <pre><code>&lt;ul class=&quot;grid-inline&quot;&gt; 
+      <pre><code id="code-grid-inline">&lt;ul class=&quot;grid-inline&quot;&gt; 
   &lt;li&gt;Item 1&lt;/li&gt;
   &lt;li&gt;Item 2&lt;/li&gt;
   ...
-&lt;/ul&gt;</code></pre>
+&lt;/ul&gt;</code><button class="copy" onclick="copyText('code-grid-inline')">Copy</button></pre>
     </section>
+
+    <script>
+      const copyText = (divId) => {
+        const div = document.getElementById(divId);
+        if (!div) return;
+        const textToCopy = div.innerText || div.textContent;
+        const textarea = document.createElement('textarea');
+        textarea.value = textToCopy;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        alert('Copied!');
+      };
+    </script>
   </body>
 </html>
