@@ -32,6 +32,11 @@ ul[class] {
 [class*=' stack'] {
   flex-direction: column;
 }
+ 
+[class^='inline'] > [class^='stack'] {
+  flex: 1;
+}
+
 
 .inline-zero,
 .stack-zero {

@@ -37,11 +37,17 @@
 
       [class^='grid'] > *,
       section > [class^='inline'] > *,
-      section > [class^='stack'] > * {
+      section > [class^='stack'] > *,
+      [padding] {
         background-color: #f0f0f0;
         line-height: 1;
         outline: 1px solid #fff;
         padding: 1rem;
+      }
+
+      [no-padding] {
+        background-color: transparent !important;
+        padding: 0 !important;
       }
 
       .a,
@@ -221,6 +227,45 @@
   ...
 &lt;/div&gt;</code><button class="copy" onclick="copyText('code-inline-top')">Copy</button></pre>
     </section>
+
+    <section class="stack">
+      <h2 id="inline">Nested Stack and Inline</h2>
+
+      <div class="stack" no-padding>
+        <div class="inline inline-wrap" no-padding>
+          <div class="stack" padding>
+            <label>Label 1</label>
+            <input />
+          </div>
+          <div class="stack" padding>
+            <label>Label 2</label>
+            <input />
+          </div>
+        </div>
+        <div class="stack" padding>
+          <label>Label 3</label>
+          <input />
+        </div>
+      </div>
+
+      <pre><code id="code-nested">&lt;div class=&quot;stack&quot;&gt;
+  &lt;div class=&quot;inline inline-wrap&quot;&gt;
+    &lt;div class=&quot;stack&quot;&gt;
+      &lt;label&gt;Label&lt;/label&gt;
+      &lt;input /&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;stack&quot;&gt;
+      &lt;label&gt;Label&lt;/label&gt;
+      &lt;input /&gt;
+    &lt;/div&gt; 
+  &lt;/div&gt;
+  &lt;div class=&quot;stack&quot;&gt;
+    &lt;label&gt;Label&lt;/label&gt;
+    &lt;input /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-nested')">Copy</button></pre>
+
+</section>
 
     <section class="stack-half">
       <h2 id="grid-sidebar">Grid Sidebar</h2>
