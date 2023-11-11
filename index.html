@@ -16,14 +16,14 @@
       }
 
       html {
-        background: linear-gradient(#edffaa, transparent 10rem);
+        background: linear-gradient(#ebdbff, transparent 6rem);
       }
 
       body {
         color: #444;
         font-family: sans-serif;
         line-height: 1.5;
-        margin: 1.5rem;
+        margin: 1.5rem auto;
         max-width: 50rem;
       }
 
@@ -368,6 +368,27 @@
   &lt;li&gt;Item 2&lt;/li&gt;
   ...
 &lt;/ul&gt;</code><button class="copy" onclick="copyText('code-grid-inline')">Copy</button></pre>
+    </section>
+
+    <section class="stack-half">
+      <h2 id="grid-block-5">Breakout</h2>
+      <p>When you need a column of content like a blog post, with sections that "break out" eg. image or sections with a different background colour. <a href="https://ryanmulligan.dev/blog/layout-breakouts/">Source</a></p>
+
+      <div class="breakout">
+        <p padding>Content</p>
+        <div class="feature" padding>Feature content</div>
+        <p padding>Content</p>
+        <div class="full" padding>Full width content</div>
+        <p padding>Content</p>
+      </div>
+
+      <pre><code id="code-breakout">&lt;div class=&quot;breakout&quot;&gt; 
+  &lt;p&gt;Content&lt;/p&gt;
+  &lt;div class=&quot;feature&quot;&gt;Feature content&lt;/p&gt;
+  &lt;p&gt;Content&lt;/p&gt;
+  &lt;div class=&quot;full&quot;&gt;Full width content&lt;/p&gt;
+  ...
+&lt;/div&gt;</code><button class="copy" onclick="copyText('code-breakout')">Copy</button></pre>
     </section>
 
     <script>
