@@ -6,7 +6,21 @@
     <title>CSS Layouts</title>
     <link href="styles.css" rel="stylesheet" />
     <style>
-      /* Styles to make the demos below a bit prettier */
+      /* Styles to make the demos below a bit prettier. Don't copy these! */
+      :root {
+        --color-bg: #fff;
+        --color-border: #d1d9ba;
+        --color-example-bg-alt: #e0e0e0;
+        --color-example-bg: #f0f0f0;
+        --color-gradient: #efe3fd;
+        --color-highlight-1: #aaffd5;
+        --color-highlight-2: #d0aaff;
+        --color-highlight-3: #edffaa;
+        --color-link: #1c46a0;
+        --color-pre-text: #283109;
+        --color-text: #444;
+      }
+
       *,
       *::before,
       *::after {
@@ -16,32 +30,44 @@
       }
 
       html {
-        background: linear-gradient(#ebdbff, transparent 6rem);
+        background: var(--color-bg)
+          linear-gradient(var(--color-gradient), transparent 3rem);
+        padding: 0.75rem;
+        color: var(--color-text);
       }
 
       body {
-        color: #444;
+        color: inherit;
         font-family: sans-serif;
         line-height: 1.5;
         margin: 1.5rem auto;
         max-width: 50rem;
+        text-wrap: balance;
       }
 
       pre {
-        border: 0.5px solid #d1d9ba;
-        color: #283109;
+        border: 0.5px solid var(--color-border);
+        color: var(--color-pre-text);
         overflow: auto;
         padding: 0.75rem;
         position: relative;
+      }
+
+      code {
+        font-size: 110%;
+      }
+
+      a {
+        color: var(--color-link);
       }
 
       [class^='grid'] > *,
       section > [class^='inline'] > *,
       section > [class^='stack'] > *,
       [padding] {
-        background-color: #f0f0f0;
+        background-color: var(--color-example-bg);
         line-height: 1;
-        outline: 1px solid #fff;
+        outline: 1px solid var(--color-bg);
         padding: 1rem;
       }
 
@@ -52,17 +78,17 @@
 
       .a,
       .header {
-        background-color: #aaffd5;
+        background-color: var(--color-highlight-1);
       }
 
       .b,
       .content {
-        background-color: #d0aaff;
+        background-color: var(--color-highlight-2);
       }
 
       .c,
       .sidebar {
-        background-color: #edffaa;
+        background-color: var(--color-highlight-3);
       }
 
       .sidebar ul {
@@ -70,6 +96,11 @@
         flex-direction: column;
         min-height: 500px;
         overflow: hidden;
+      }
+
+      [class^='grid-blocks'] > :nth-child(2n + 1),
+      .grid-inline > :nth-child(2n + 1) {
+        background-color: var(--color-example-bg-alt);
       }
 
       .copy {
@@ -86,17 +117,45 @@
       .copy:hover {
         opacity: 1;
       }
+
+      @media (prefers-color-scheme: dark) {
+        /* html {
+          background: #0b0b0b linear-gradient(#51327a, transparent 6rem);
+          color: #e6e6e6;
+        } */
+
+        :root {
+          --color-bg: #191420;
+          --color-border: #594b6c;
+          --color-example-bg-alt: #3b314b;
+          --color-example-bg: #31283d;
+          --color-gradient: #594b6c;
+          --color-highlight-1: #1a412e;
+          --color-highlight-2: #3a0d25;
+          --color-highlight-3: #1a535e;
+          --color-link: #6287d9;
+          --color-pre-text: #cdbae8;
+          --color-text: #e6e6e6;
+        }
+      }
     </style>
   </head>
   <body class="stack-2x">
     <header class="stack-half">
       <h1>CSS Layouts</h1>
       <p>
-        Who needs a grid system anymore? Some useful CSS layouts using <code>flex</code> and <code>grid</code> for any
-        project.
+        Who needs a grid system anymore? Some useful CSS layouts using
+        <code>flex</code> and <code>grid</code> for any project.
       </p>
 
-      <p>To use, copy the CSS from <a href="styles.css">styles.css</a> and use the HTML markup below.</p>
+      <p>
+        To use, copy the CSS from <a href="styles.css">styles.css</a> and drop
+        it into your project. Then use the the HTML markup below.
+      </p>
+
+      <p>
+        <a href="https://github.com/seanockert/css-layouts">View on Github</a>
+      </p>
     </header>
 
     <section class="stack">
@@ -118,8 +177,11 @@
 
       <h3>Change gap size</h3>
 
+      <div>Adjust the space between items in the stack.</div>
+
       <div>
-        Options: <code>stack-zero</code>, <code>stack-quarter</code>, <code>stack-half</code>, <code>stack-2x</code>
+        Options: <code>stack-zero</code>, <code>stack-quarter</code>,
+        <code>stack-half</code>, <code>stack-2x</code>, <code>stack-4x</code>
       </div>
 
       <div class="stack-2x">
@@ -152,7 +214,7 @@
     <section class="stack">
       <h2 id="inline">Inline</h2>
 
-      <h3>Align items inline</h3>
+      <h3>Align items in a row</h3>
 
       <div class="inline">
         <div>Inline item 1</div>
@@ -169,7 +231,8 @@
       <h3>Change gap size</h3>
 
       <div>
-        Options: <code>inline-zero</code>, <code>inline-quarter</code>, <code>inline-half</code>, <code>inline-2x</code>
+        Options: <code>inline-zero</code>, <code>inline-quarter</code>,
+        <code>inline-half</code>, <code>inline-2x</code>
       </div>
 
       <div class="inline-2x">
@@ -264,13 +327,15 @@
     &lt;input /&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code><button class="copy" onclick="copyText('code-nested')">Copy</button></pre>
-
-</section>
+    </section>
 
     <section class="stack-half">
       <h2 id="grid-sidebar">Grid Sidebar</h2>
       <p>Content with scrollable sidebar.</p>
-      <p>On mobile, collapse to 1 column with the order: Header &rarr; Sidebar &rarr; Content</p>
+      <p>
+        On mobile, collapse to 1 column with the order: Header &rarr; Sidebar
+        &rarr; Content
+      </p>
 
       <div class="grid-sidebar">
         <header class="header">Header</header>
@@ -298,8 +363,14 @@
 
     <section class="stack-half">
       <h2 id="grid-acb">Grid ACB</h2>
-      <p>Uses named sections to order content. Right align an image with a specific aspect ratio.</p>
-      <p>On mobile, collapse to 1 column with the order: Header &rarr; Image &rarr; Content</p>
+      <p>
+        Uses named sections to order content. Right align an image with a
+        specific aspect ratio.
+      </p>
+      <p>
+        On mobile, collapse to 1 column with the order: Header &rarr; Image
+        &rarr; Content
+      </p>
       <div class="grid-acb">
         <header class="a">Header (Section A)</header>
         <div class="b">Content (Section B)</div>
@@ -314,9 +385,31 @@
     </section>
 
     <section class="stack-half">
-      <h2 id="grid-block-5">Grid Block 5</h2>
-      <p>A block of 5 items per row. Reduce items per row at breakpoints.</p>
-      <p>This could be modified to N items.</p>
+      <h2 id="grid-blocks">Grid Blocks</h2>
+      <p>
+        A block of N items per row. Reduce items per row at breakpoints. Modify
+        the number of items per row as needed
+      </p>
+
+      <h3>Grid Blocks 4</h3>
+
+      <ul class="grid-blocks-4">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+        <li>F</li>
+        <li>G</li>
+      </ul>
+
+      <pre><code id="code-grid-blocks-4">&lt;ul class=&quot;grid-blocks-4&quot;&gt; 
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  ...
+&lt;/ul&gt;</code><button class="copy" onclick="copyText('code-grid-blocks-4')">Copy</button></pre>
+
+      <h3>Grid Blocks 5</h3>
 
       <ul class="grid-blocks-5">
         <li>A</li>
@@ -344,7 +437,9 @@
 
     <section class="stack-half">
       <h2 id="grid-inline">Grid Inline</h2>
-      <p>Collapse items per row based on their fixed width (in this case 12rem)</p>
+      <p>
+        Collapse items per row based on their fixed width (in this case 12rem)
+      </p>
 
       <ul class="grid-inline">
         <li>A</li>
@@ -372,7 +467,14 @@
 
     <section class="stack-half">
       <h2 id="grid-block-5">Breakout</h2>
-      <p>When you need a column of content like a blog post, with sections that "break out" eg. image or sections with a different background colour. <a href="https://ryanmulligan.dev/blog/layout-breakouts/">Source</a></p>
+      <p>
+        When you need a column of content like a blog post, with sections that
+        "break out" eg. image or sections with a different background colour.
+      </p>
+
+      <p>
+        <a href="https://ryanmulligan.dev/blog/layout-breakouts/">Source</a>
+      </p>
 
       <div class="breakout">
         <p padding>Content</p>
@@ -402,7 +504,7 @@
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-        alert('Copied!');
+        alert('HTML copied to clipboard');
       };
     </script>
   </body>

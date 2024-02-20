@@ -1,3 +1,19 @@
+/**
+* CSS Layouts
+* 
+* @author: Sean Ockert
+* @repo: https://github.com/seanockert/css-layouts
+*
+* Included layouts:
+* 1. Stack: stack items in a column
+* 2. Inline: align items in a row
+* 3. Grid Sidebar: content with scrollable sidebar
+* 4. Grid ACB: order items header (A), image (B), content (B)
+* 5. Grid Blocks: a block of N items per row
+* 6. Grid Inline: collapse block when items hit min width
+* 7. Breakout: wider columns that 'break out' of the standard width
+*/
+
 /* Variables */
 :root {
   --size-base: 0.75rem;
@@ -12,8 +28,9 @@
 [class*=' inline'],
 [class^='stack'],
 [class*=' stack'] {
+  --gap: var(--size-base);
   display: flex;
-  gap: var(--size-base);
+  gap: var(--gap);
 }
 
 ul[class] {
@@ -32,11 +49,10 @@ ul[class] {
 [class*=' stack'] {
   flex-direction: column;
 }
- 
+
 [class^='inline'] > [class^='stack'] {
   flex: 1;
 }
-
 
 .inline-zero,
 .stack-zero {
@@ -46,17 +62,22 @@ ul[class] {
 
 .inline-quarter,
 .stack-quarter {
-  gap: var(--size-quarter);
+  --gap: var(--size-quarter);
 }
 
 .inline-half,
 .stack-half {
-  gap: var(--size-half);
+  --gap: var(--size-half);
 }
 
 .inline-2x,
 .stack-2x {
-  gap: var(--size-2x);
+  --gap: var(--size-2x);
+}
+
+.inline-4x,
+.stack-4x {
+  --gap: var(--size-4x);
 }
 
 .inline-between {
@@ -136,13 +157,22 @@ ul[class] {
   overflow: auto;
 }
 
-/* Grid Blocks 5 */
-.grid-blocks-5 {
+/* Grid Blocks */
+[class^='grid-blocks'] {
+  --rows: 5;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  grid-template-rows: repeat(auto, auto);
+  grid-template-columns: repeat(var(--rows), minmax(0, 1fr));
   list-style: none;
   padding: 0;
+}
+
+/* Define how many rows you want */
+.grid-blocks-4 {
+  --rows: 4;
+}
+
+.grid-blocks-5 {
+  --rows: 5;
 }
 
 /* Grid Inline */
@@ -192,8 +222,8 @@ ul[class] {
   }
 
   /* Reduce items per row */
-  .grid-blocks-5 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  [class^='grid-blocks'] {
+    --rows: 2;
   }
 
   .grid-sidebar {
